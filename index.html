@@ -73,21 +73,27 @@
             50% { transform: rotate(5deg); }
         }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
 
-        .memory-photo {
-            width: 100%;
-            height: 150px;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 3px solid #ff69b4;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+.memory-photo {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid #ff69b4;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.memory-photo:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+}
 
         .photo-placeholder {
             width: 100%;
@@ -226,20 +232,15 @@
     <div class="page" id="page3">
         <h1>Before you answer, remember all the fun times we've had 🥰</h1>
         
-        <div class="photo-grid">
-            <!-- REPLACE THESE WITH YOUR PHOTOS -->
-            <div class="photo-placeholder">
-                Add your photo here! 📸
-            </div>
-            <div class="photo-placeholder">
-                Add your photo here! 📸
-            </div>
-            <div class="photo-placeholder">
-                Add your photo here! 📸
-            </div>
-            <div class="photo-placeholder">
-                Add your photo here! 📸
-            </div>
+<div class="photo-grid">
+    <img src="Image from iOS (1).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (2).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (3).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (4).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (5).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (6).jpg" alt="Us" class="memory-photo">
+    <img src="Image from iOS (7).jpg" alt="Us" class="memory-photo">
+</div>
         </div>
         
         <div class="dog-container">
