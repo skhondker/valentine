@@ -73,27 +73,27 @@
             50% { transform: rotate(5deg); }
         }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 20px 0;
-}
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
 
-.memory-photo {
-    width: 100%;
-    height: 150px;
-    border-radius: 15px;
-    object-fit: cover;
-    border: 3px solid #ff69b4;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        .memory-photo {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #ff69b4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-.memory-photo:last-child {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-}
+        .memory-photo:last-child {
+            grid-column: 1 / -1;
+            max-width: 50%;
+            margin: 0 auto;
+        }
 
         .photo-placeholder {
             width: 100%;
@@ -211,8 +211,7 @@
     <!-- Page 1 -->
     <div class="page active" id="page1">
         <div class="dog-container">
-            <img src="https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg" alt="Golden Retriever" class="dog-img">
-<img src="https://www.stockvault.net/data/2019/03/26/262172/preview16.jpg" alt="Golden Retriever" class="dog-img">
+            <img src="https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg" alt="Golden Retriever" class="dog-img">
         </div>
         <h1>Hey Christana mou... 💕<br>I need to ask you something</h1>
         <button onclick="nextPage(2)">Continue...</button>
@@ -220,10 +219,6 @@
 
     <!-- Page 2 -->
     <div class="page" id="page2">
-        <div class="dog-container">
-            <img src="https://cdn.pixabay.com/photo/2020/03/31/14/12/dog-4988985_1280.jpg" alt="Golden Retriever" class="dog-img">
-<img src="https://cdn.pixabay.com/photo/2018/03/18/18/06/dog-3237513_1280.jpg" alt="Golden Retriever" class="dog-img">
-        </div>
         <h1>I'm a little nervous about this 😅</h1>
         <button onclick="nextPage(3)">It's okay, keep going...</button>
     </div>
@@ -232,18 +227,14 @@
     <div class="page" id="page3">
         <h1>Before you answer, remember all the fun times we've had 🥰</h1>
         
-<div class="photo-grid">
-    <img src="Image%20from%20iOS%20(1).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(2).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(3).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(4).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(5).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(6).jpg" alt="Us" class="memory-photo">
-    <img src="Image%20from%20iOS%20(7).jpg" alt="Us" class="memory-photo">
-</div>
-        
-        <div class="dog-container">
-            <img src="https://cdn.pixabay.com/photo/2022/01/26/14/12/dog-6969874_1280.jpg" alt="Golden Retriever" class="dog-img">
+        <div class="photo-grid">
+            <img src="Image%20from%20iOS%20(1).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(2).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(3).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(4).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(5).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(6).jpg" alt="Us" class="memory-photo">
+            <img src="Image%20from%20iOS%20(7).jpg" alt="Us" class="memory-photo">
         </div>
         
         <button onclick="nextPage(4)">Those were great times 💕</button>
@@ -251,30 +242,27 @@
 
     <!-- Page 4 -->
     <div class="page" id="page4">
-        <div class="dog-container">
-            <img src="https://cdn.pixabay.com/photo/2020/11/12/14/28/dog-5736965_1280.jpg" alt="Golden Retriever" class="dog-img">
-<img src="https://cdn.pixabay.com/photo/2022/09/02/12/03/dog-7428171_1280.jpg" alt="Golden Retriever" class="dog-img">
-        </div>
         <h1>Okay but seriously.... 😊</h1>
         <button onclick="nextPage(5)">Tell me!</button>
     </div>
 
     <!-- Page 5 -->
-    <div class="page" id="page5">
-        <h1 class="pulse">Will you be my Valentine? 💕</h1>
-        
-        <div class="dog-container">
-            <img src="https://cdn.pixabay.com/photo/2016/11/29/09/08/golden-retriever-1868750_1280.jpg" alt="Golden Retriever" class="dog-img">
-<img src="https://cdn.pixabay.com/photo/2020/01/31/07/10/golden-retriever-4805450_1280.jpg" alt="Golden Retriever" class="dog-img">
-        </div>
-        
-        <div class="button-container">
-            <button id="yesBtn">Yes! 💖</button>
-            <button id="noBtn">No</button>
-        </div>
-        
-        <div class="response" id="response"></div>
+<!-- Page 5 -->
+<div class="page" id="page5">
+    <h1 class="pulse">Will you be my Valentine? 💕</h1>
+    
+    <div class="dog-container">
+        <div style="font-size: 80px;">🐕</div>
+        <div style="font-size: 80px;">🐶</div>
     </div>
+    
+    <div class="button-container">
+        <button id="yesBtn">Yes! 💖</button>
+        <button id="noBtn">No</button>
+    </div>
+    
+    <div class="response" id="response"></div>
+</div>
 
     <script>
         let currentPage = 1;
