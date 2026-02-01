@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: none;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 2em;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .dog-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dog-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff69b4;
+            animation: wiggle 3s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-photo {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 3px solid #ff69b4;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            border: 3px dashed #ff69b4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffeef8;
+            color: #ff69b4;
+            font-size: 0.9em;
+            text-align: center;
+            padding: 10px;
+        }
+
+        button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255,105,180,0.4);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            min-height: 120px;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255,105,180,0.4);
+        }
+
+        #noBtn {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        #noBtn:hover {
+            background: #e0e0e0;
+        }
+
+        .response {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #ff69b4;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 4s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-1000px) rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="heartsContainer"></div>
+    
+    <!-- Page 1 -->
+    <div class="page active" id="page1">
+        <div class="dog-container">
+            <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+        </div>
+        <h1>Hey Christana mou... 💕<br>I need to ask you something</h1>
+        <button onclick="nextPage(2)">Continue...</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page" id="page2">
+        <div class="dog-container">
+            <img src="https://images.unsplash.com/photo-1627845336742-dfc2e5c2cd56?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+            <img src="https://images.unsplash.com/photo-1634546898430-8ab0c3c8e0f3?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+        </div>
+        <h1>I'm a little nervous about this 😅</h1>
+        <button onclick="nextPage(3)">It's okay, keep going...</button>
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page" id="page3">
+        <h1>Before you answer, remember all the fun times we've had 🥰</h1>
+        
+        <div class="photo-grid">
+            <!-- REPLACE THESE WITH YOUR PHOTOS -->
+            <div class="photo-placeholder">
+                Add your photo here! 📸
+            </div>
+            <div class="photo-placeholder">
+                Add your photo here! 📸
+            </div>
+            <div class="photo-placeholder">
+                Add your photo here! 📸
+            </div>
+            <div class="photo-placeholder">
+                Add your photo here! 📸
+            </div>
+        </div>
+        
+        <div class="dog-container">
+            <img src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+        </div>
+        
+        <button onclick="nextPage(4)">Those were great times 💕</button>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page" id="page4">
+        <div class="dog-container">
+            <img src="https://images.unsplash.com/photo-1612536980002-f7f059f7b74c?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+            <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+        </div>
+        <h1>Okay but seriously.... 😊</h1>
+        <button onclick="nextPage(5)">Tell me!</button>
+    </div>
+
+    <!-- Page 5 -->
+    <div class="page" id="page5">
+        <h1 class="pulse">Will you be my Valentine? 💕</h1>
+        
+        <div class="dog-container">
+            <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200&h=200&fit=crop" alt="Golden Retriever" class="dog-img">
+        </div>
+        
+        <div class="button-container">
+            <button id="yesBtn">Yes! 💖</button>
+            <button id="noBtn">No</button>
+        </div>
+        
+        <div class="response" id="response"></div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        
+        function nextPage(pageNum) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            document.getElementById('page' + pageNum).classList.add('active');
+            currentPage = pageNum;
+            
+            // Reset the timer when reaching the final page
+            if (pageNum === 5) {
+                startTime = Date.now();
+            }
+        }
+        
+        // Valentine question functionality (Page 5)
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const response = document.getElementById('response');
+        const heartsContainer = document.getElementById('heartsContainer');
+        
+        let startTime = Date.now();
+        let baseYesSize = 1.2;
+        let baseNoSize = 1.2;
+        
+        const responses = [
+            "Omg I was hoping you'd say that! 💕",
+            "Yay that's what I wanted you to say! 🎉",
+            "You just made me the happiest person! 😍",
+            "I knew you were the one! 💖",
+            "Best decision ever! 🥰",
+            "My heart is so full right now! 💗"
+        ];
+        
+        // Grow the Yes button over time
+        setInterval(() => {
+            if (currentPage === 5) {
+                const timeElapsed = (Date.now() - startTime) / 1000;
+                const growthFactor = 1 + (timeElapsed * 0.15);
+                
+                yesBtn.style.fontSize = (baseYesSize * growthFactor) + 'em';
+                yesBtn.style.padding = (15 * growthFactor) + 'px ' + (30 * growthFactor) + 'px';
+                
+                const shrinkFactor = Math.max(0.4, 1 - (timeElapsed * 0.05));
+                noBtn.style.fontSize = (baseNoSize * shrinkFactor) + 'em';
+                noBtn.style.padding = (15 * shrinkFactor) + 'px ' + (30 * shrinkFactor) + 'px';
+            }
+        }, 100);
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        yesBtn.addEventListener('click', () => {
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            response.textContent = randomResponse;
+            response.style.display = 'block';
+            
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createHeart(), i * 100);
+            }
+            
+            document.body.style.background = 'linear-gradient(135deg, #ff69b4 0%, #ff1493 100%)';
+        });
+        
+        noBtn.addEventListener('click', () => {
+            const randomX = (Math.random() - 0.5) * 200;
+            const randomY = (Math.random() - 0.5) * 200;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.8)`;
+            
+            baseYesSize *= 1.3;
+            yesBtn.style.fontSize = baseYesSize + 'em';
+        });
+    </script>
+</body>
+</html>
